@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -25,6 +26,10 @@ public class UserService {
 
     public User getUserById(Long id){
         return userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    public List<User> getUserList(){
+        return userRepository.findAll();
     }
 
     public User updateUsername(Long id, String username){

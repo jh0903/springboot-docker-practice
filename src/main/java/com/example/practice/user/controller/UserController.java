@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
@@ -20,9 +22,14 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping("/info/{userId}")
+    @GetMapping("/{userId}")
     public ResponseEntity<User> getUser(@PathVariable Long userId){
         return ResponseEntity.ok(userService.getUserById(userId));
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<User>> getUsers(){
+        return ResponseEntity.ok(userService.getUserList());
     }
 
     @PutMapping("/update/{userId}")
