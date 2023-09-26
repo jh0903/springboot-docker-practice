@@ -42,6 +42,10 @@ docker-compose up 명령어를 통해 컨테이너들을 실행시킬 수 있다
 
 소스 수정이 이루어졌을 때는 다시 이미지를 빌드해야 하므로 가급적 `docker-compose up --build`를  하는 게 좋다.
 
+
+
+다음은 springboot application 컨테이너와 mysql 컨테이너를 한번에 띄워주는 docker-compose.yml 파일이다.
+
 ```bash
 version: "3" # yaml 파일 포맷의 버전을 나타냄
 services: # 생성될 컨테이너들을 묶어놓은 단위
